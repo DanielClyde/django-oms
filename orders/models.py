@@ -19,7 +19,7 @@ class Part(models.Model):
     obsolete = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self._id) + str(self.name)
+        return str(self._id) + ': ' + str(self.name)
 
 
 class Order(models.Model):
@@ -28,7 +28,7 @@ class Order(models.Model):
     shippingTotal = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self._id) + str(self.customerNumber)
+        return str(self._id) + ': ' + str(self.customerNumber)
 
 
 class Item(models.Model):
@@ -39,6 +39,6 @@ class Item(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return str(self._id) + str(self.quantity) + ' x ' + str(self.partNumber)
+        return str(self._id) + ': ' + str(self.quantity) + ' x ' + str(self.partNumber) + ' - ' + self.orderNumber
 
 
